@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MainController::class, 'index']);
+Route::get('/current-week', [MainController::class, 'currentWeek'])->name('current_week');
+Route::get('/next-week', [MainController::class, 'nextWeek'])->name('next_week');
+Route::get('/play-all', [MainController::class, 'playAll'])->name('play_all');
